@@ -1,0 +1,19 @@
+//
+//  PrefixHeader.pch
+//  NSlogDemo
+//
+//  Created by xiang on 2017/6/12.
+//  Copyright © 2017年 xiang. All rights reserved.
+//
+
+//保证 #ifdef 中的宏定义只会在OC的代码中被引用
+//否则，一旦引入 C/C++的代码或者框架，就会出错
+#ifdef __OBJC__
+
+#ifdef DEBUG
+#define NSLog(fmt, ...)  NSLog((@"%s [Line %d]" fmt), __PRETTY_FUNCTION__, __LINE__ ,##__VA_ARGS__)
+#else
+#define NSLog(...)
+#endif
+
+#endif
